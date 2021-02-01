@@ -339,17 +339,21 @@ public class Block{
 	{
 		if(bType == BlockType.AIR) return;
 		//solid or same neighbour
-		if(!HasSolidNeighbour((int)position.x,(int)position.y,(int)position.z + 1))
+		if (!HasSolidNeighbour((int)position.x, (int)position.y, (int)position.z + 1)
+			&& bType != BlockType.WATER)
 			CreateQuad(Cubeside.FRONT);
-		if(!HasSolidNeighbour((int)position.x,(int)position.y,(int)position.z - 1))
+		if (!HasSolidNeighbour((int)position.x, (int)position.y, (int)position.z - 1)
+			&& bType != BlockType.WATER)
 			CreateQuad(Cubeside.BACK);
-		if(!HasSolidNeighbour((int)position.x,(int)position.y + 1,(int)position.z))
+		if (!HasSolidNeighbour((int)position.x, (int)position.y + 1, (int)position.z))
 			CreateQuad(Cubeside.TOP);
-		if(!HasSolidNeighbour((int)position.x,(int)position.y - 1,(int)position.z))
+		if (!HasSolidNeighbour((int)position.x, (int)position.y - 1, (int)position.z))
 			CreateQuad(Cubeside.BOTTOM);
-		if(!HasSolidNeighbour((int)position.x - 1,(int)position.y,(int)position.z))
+		if (!HasSolidNeighbour((int)position.x - 1, (int)position.y, (int)position.z)
+			&& bType != BlockType.WATER)
 			CreateQuad(Cubeside.LEFT);
-		if(!HasSolidNeighbour((int)position.x + 1,(int)position.y,(int)position.z))
+		if (!HasSolidNeighbour((int)position.x + 1, (int)position.y, (int)position.z)
+		   && bType != BlockType.WATER)
 			CreateQuad(Cubeside.RIGHT);
 	}
 }

@@ -24,6 +24,7 @@ public class Chunk {
     public Block[,,] chunkData;
     public GameObject chunk;
     public GameObject fluid;
+
     public enum ChunkStatus { DRAW, DONE, KEEP };
     public ChunkStatus status;
     public ChunkMB mb;
@@ -222,6 +223,7 @@ public class Chunk {
         chunk.transform.position = position;
         fluid = new GameObject(World.BuildChunkName(position) + "_F");
         fluid.transform.position = position;
+        //fluid.AddComponent<UVScroller>();
 
         mb = chunk.AddComponent<ChunkMB>();
         mb.SetOwner(this);
